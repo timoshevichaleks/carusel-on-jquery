@@ -5,11 +5,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Carousel</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="libs/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 
 <body>
+
+  <div class="carousel" id="carousel">
+    <ul id="slides" class="slides">
+      <li class="slide active">
+        <img class="slide__image" src="assets/img/01.jpg" alt="slideImage">
+        <h3 class="slide__title">Slide 1</h3>
+      </li>
+      <li class="slide">
+        <img class="slide__image" src="assets/img/02.jpg" alt="slideImage">
+        <h3 class="slide__title">Slide 2</h3>
+      </li>
+      <li class="slide">
+        <img class="slide__image" src="assets/img/03.jpg" alt="slideImage">
+        <h3 class="slide__title">Slide 3</h3>
+      </li>
+      <li class="slide">
+        <img class="slide__image" src="assets/img/04.jpg" alt="slideImage">
+        <h3 class="slide__title">Slide 4</h3>
+      </li>
+      <li class="slide">
+        <img class="slide__image" src="assets/img/05.jpg" alt="slideImage">
+        <h3 class="slide__title">Slide 5</h3>
+      </li>
+    </ul>
+
+    <div class="controls-block-pause">
+      <a class="pause" id="pause" href="#"><i class="far fa-pause-circle"></i></a>
+    </div>
+
+    <div class="controls-block">
+      <a class="controls controls-prev" id="prev" href="#"><i class="fas fa-angle-left"></i></a>
+      <a class="controls controls-next" id="next" href="#"><i class="fas fa-angle-right"></i></a>
+    </div>
+
+    <div class="indicators" id="indicators">
+      <a class="indicator indicator-active" href="#" data-slide-to="0"></a>
+      <a class="indicator" href="#" data-slide-to="1"></a>
+      <a class="indicator" href="#" data-slide-to="2"></a>
+      <a class="indicator" href="#" data-slide-to="3"></a>
+      <a class="indicator" href="#" data-slide-to="4"></a>
+    </div>
+  </div>
+
+  <script src="libs/jquery/dist/jquery.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 

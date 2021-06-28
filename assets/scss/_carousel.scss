@@ -1,0 +1,167 @@
+.carousel {
+  position: relative;
+}
+
+.slides {
+  position: relative;
+
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  position: relative;
+  position: absolute;
+  z-index: -999;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 1s;
+
+  opacity: 0;
+  color: #ffffff;
+  background: #333333;
+  &__image {
+    min-width: 100%;
+    min-height: 100%;
+
+    object-fit: cover;
+  }
+  &__title {
+    position: absolute;
+    z-index: 5;
+    bottom: 60px;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    @include xs {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.active {
+  z-index: 1;
+
+  opacity: 1;
+}
+
+
+/* controls */
+
+.controls {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  @include xs-min {
+    padding: 0 60px;
+  }
+  @include xs {
+    padding: 0 20px;
+  }
+  &-block {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    transform: translateY(-50%);
+
+    font-size: 2rem;
+
+    @include xs {
+      font-size: 1.5rem;
+    }
+    &-pause {
+      position: absolute;
+      z-index: 5;
+      top: 50%;
+      left: 50%;
+
+      padding: 20px;
+
+      transition: 0.7s;
+      transform: translate(-50%, -50%);
+
+      opacity: 0;
+
+      font-size: 8rem;
+
+      @include xs {
+        font-size: 3rem;
+      }
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+  &-prev {
+    &:hover,
+    &:focus {
+      background: linear-gradient(90deg, rgba(6, 6, 6, 0.8) 8%, rgba(255, 255, 255, 0) 100%);
+    }
+  }
+  &-next {
+    &:hover,
+    &:focus {
+      background: linear-gradient(-90deg, rgba(6, 6, 6, 0.8) 8%, rgba(255, 255, 255, 0) 100%);
+    }
+  }
+}
+
+
+/* indicators */
+
+.indicators {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 50%;
+
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  transform: translateX(-50%);
+
+  gap: 20px;
+}
+
+.indicator {
+  width: 30px;
+  height: 30px;
+
+  user-select: none;
+
+  border: 3px solid rgba(#ffffff, 0.7);
+  border-radius: 50%;
+  background-color: transparent;
+
+  @include xs {
+    width: 20px;
+    height: 20px;
+  }
+  &-active {
+    border: 3px solid rgba(#ffffff, 1);
+    background-color: rgba(#ffffff, 0.7);
+    box-shadow: 0 0 10px white;
+  }
+}

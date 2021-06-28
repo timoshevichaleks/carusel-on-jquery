@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  margin: 0;
+
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+
+  color: rgba(#ffffff, 0.5);
+  &:hover,
+  &:focus {
+    transition: 1s;
+
+    color: rgba(#ffffff, 1);
+  }
+}
