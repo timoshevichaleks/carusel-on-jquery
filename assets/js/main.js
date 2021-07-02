@@ -1,8 +1,7 @@
-let container = $('#carousel');
-let slides = $('.slide');
-let indicatorsContainer = $('#indicators');
-let indicators = $('.indicator');
-let blockIindicators = $('<div/>');
+let $container = $('#carousel');
+let $slides = $('.slide');
+let $indicatorsContainer = $('#indicators');
+let $indicators = $('.indicator');
 let currentSlide = 0;
 let isPlaying = true;
 let interval = 2000;
@@ -18,11 +17,11 @@ const FA_PAUSE = '<i class="far fa-pause-circle"></i>';
 const FA_PLAY = '<i class="far fa-play-circle"></i>';
 
 function goToSlide(n) {
-  $(slides[currentSlide]).toggleClass('active');
-  $(indicators[currentSlide]).toggleClass('indicator-active');
-  currentSlide = (n + slides.length) % slides.length;
-  $(slides[currentSlide]).toggleClass('active');
-  $(indicators[currentSlide]).toggleClass('indicator-active');
+  $($slides[currentSlide]).toggleClass('active');
+  $($indicators[currentSlide]).toggleClass('indicator-active');
+  currentSlide = (n + $slides.length) % $slides.length;
+  $($slides[currentSlide]).toggleClass('active');
+  $($indicators[currentSlide]).toggleClass('indicator-active');
 }
 
 function nextSlide() {
@@ -67,12 +66,12 @@ function pausePlay() {
   }
 }
 
-function indicate(event) {
-  let target = event.target;
+function indicate(e) {
+  let target = e.target;
 
   if (target && $(target).hasClass('indicator')) {
     pause();
-    goToSlide(+target.getAttribute("data-slide-to"));
+    goToSlide(+$(target).attr('data-slide-to'));
   }
 }
 
@@ -101,7 +100,7 @@ let slideInterval = setInterval(nextSlide, interval);
 prevButton.on('click', prev);
 nextButton.on('click', next);
 pauseButton.on('click', pausePlay);
-indicatorsContainer.on('click', indicate);
+$indicatorsContainer.on('click', $indicators, indicate);
 $(document).on('keydown', pressKey);
 $(document).on('touchstart', swipeStart);
 $(document).on('touchend', swipeEnd);
