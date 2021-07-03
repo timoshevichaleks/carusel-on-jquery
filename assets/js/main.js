@@ -67,12 +67,8 @@ function pausePlay() {
 }
 
 function indicate(e) {
-  let target = e.target;
-
-  if (target && $(target).hasClass('indicator')) {
-    pause();
-    goToSlide(+$(target).attr('data-slide-to'));
-  }
+  pause();
+  goToSlide(+$(e.target).attr('data-slide-to'));
 }
 
 function pressKey(e) {
